@@ -13,6 +13,8 @@ var c, python, golang, java, php bool
 // Package level variables with initializers
 var i, j int = 1, 2
 
+const sqMeridian = 1.41425
+
 // Standard function with a return value
 func cube(x float64) float64 {
 	return x * x * x
@@ -33,6 +35,36 @@ func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
 	return
+}
+
+func types() {
+	var x, y int = 3, 4
+	var f float64 = math.Sqrt(float64(x*x + y*y)) + 0.5
+	var z uint = uint(f)
+	foobar := math.Pi
+
+	fmt.Println(x,y,f,z,foobar)
+	fmt.Printf("foobar is of type %T\n", foobar)
+}
+
+func needInt(x int) int { return x*10 + 1}
+func needFloat(x float64) float64 { return x * 0.1}
+
+func constants() {
+	const World = "世界"
+	const Flag = true
+
+	const (
+		Bignum = 1 << 100
+		Smallnum = Bignum >> 99
+	)
+
+	fmt.Println("Hello", World, "!")
+	fmt.Println("Happy", sqMeridian, "Day!")
+	fmt.Println("Go rules?", Flag)
+	fmt.Println(needInt(Smallnum))
+	fmt.Println(needFloat(Smallnum))
+	fmt.Println(needFloat(Bignum))
 }
 
 func main() {
@@ -101,4 +133,7 @@ func main() {
 	fmt.Println("Long float value:", longFloat)
 	fmt.Println("Complex value:", complexNum)
     fmt.Println("Complex z-value:", z)
+
+	types()
+	constants()
 }
