@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "runtime"
+)
 
 func mySystem() {
     fmt.Print("Go is running on: ")
@@ -9,7 +12,7 @@ func mySystem() {
     case "darwin":
         fmt.Println("OS X.")
     case "linux":
-        fmt.Println("Linux.")
+        fmt.Println("Linux! Excellent!!")
     default:
         // other
         fmt.Print("%s.\n", os)
