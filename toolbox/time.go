@@ -5,7 +5,7 @@ import (
     "time"
 )
 
-func main() {
+func tgif() {
     fmt.Println("Når Fredag?")
     today := time.Now().Weekday()
 
@@ -21,3 +21,16 @@ func main() {
             fmt.Println("I over to dager!")
     }
 }
+
+func main() {
+    tgif()
+
+    fmt.Println("Explosive device armed and ready...")
+    defer fmt.Println("Kablooey!")
+    
+    // stacked deferred functions
+    for i := 1; i <= 10; i++ {
+        defer fmt.Printf("Detonation in T-%d\n", i)
+    }
+}
+
